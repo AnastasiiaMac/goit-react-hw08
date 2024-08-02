@@ -1,14 +1,41 @@
+import { NavLink } from "react-router-dom";
 import PageTitle from "../../components/PageTitle/PageTitle";
+import { Box, Button, Typography } from "@mui/material";
+import { styled } from "@mui/system";
+import css from "./HomePage.module.css";
 
-export default function HomePage() {
+const Container = styled(Box)(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  gap: theme.spacing(2),
+}));
+
+const StyledNavLink = styled(NavLink)(({ theme }) => ({
+  textDecoration: "none",
+  color: theme.palette.primary.main,
+  "&:hover": {
+    textDecoration: "underline",
+  },
+}));
+
+const HomePage = () => {
   return (
-    <div>
-      <PageTitle>
-        Contacts manager welcome page{" "}
-        <span role="img" aria-label="Greeting icon">
-          💁‍♀️
-        </span>
-      </PageTitle>
-    </div>
+    <>
+      <PageTitle>My Phonebook</PageTitle>
+      <Container>
+        <Button
+          variant="contained"
+          color="primary"
+          component={StyledNavLink}
+          to="/contacts"
+        >
+          Go to contacts
+        </Button>
+      </Container>
+    </>
   );
-}
+};
+
+export default HomePage;

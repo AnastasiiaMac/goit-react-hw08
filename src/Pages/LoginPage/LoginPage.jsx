@@ -1,11 +1,18 @@
 import LoginForm from "../../components/LoginForm/LoginForm";
-import PageTitle from "../../components/PageTitle/PageTitle";
+import { Box, Typography } from "@mui/material";
 
 export default function LoginPage() {
   return (
-    <div>
-      <PageTitle>Please log in</PageTitle>
+    <Box
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      justifyContent="center"
+    >
+      <Typography variant="h4" gutterBottom>
+        Please log in
+      </Typography>
       <LoginForm />
-    </div>
+    </Box>
   );
 }

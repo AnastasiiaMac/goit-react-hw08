@@ -1,5 +1,7 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import iziToast from "izitoast";
+import "izitoast/dist/css/iziToast.min.css";
 axios.defaults.baseURL = "https://connections-api.goit.global/";
 const setAuthHeader = (token) => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -13,6 +15,11 @@ export const register = createAsyncThunk(
       setAuthHeader(response.data.token);
       return response.data;
     } catch (error) {
+      iziToast.error({
+        title: "Error",
+        message:
+          "Sorry, something went wrong during registration. Please check whether your email is valid or contact support",
+      });
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -23,6 +30,11 @@ export const login = createAsyncThunk("auth/login", async (creds, thunkAPI) => {
     setAuthHeader(response.data.token);
     return response.data;
   } catch (error) {
+    iziToast.error({
+      title: "Error",
+      message:
+        "Authorization error.Please make sure your login and password are correct.",
+    });
     return thunkAPI.rejectWithValue(error.message);
   }
 });
