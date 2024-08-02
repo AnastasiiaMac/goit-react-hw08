@@ -7,12 +7,12 @@ import { selectIsRefreshing } from "../redux/auth/selectors";
 import RestrictedRoute from "./RestrictedRoute";
 import PrivateRoute from "./PrivateRout";
 
-const HomePage = lazy(() => import("../pag/HomePage/HomePage"));
+const HomePage = lazy(() => import("../pages/HomePage/HomePage"));
 const RegisterPage = lazy(() =>
-  import("../pag/RegistrationPage/RegistrationPage")
+  import("../pages/RegistrationPage/RegistrationPage")
 );
-const LoginPage = lazy(() => import("../pag/LoginPage/LoginPage"));
-const ContactsPage = lazy(() => import("../pag/ContactsPage/ContactsPage"));
+const LoginPage = lazy(() => import("../pages/LoginPage/LoginPage"));
+const ContactsPage = lazy(() => import("../pages/ContactsPage/ContactsPage"));
 
 const App = () => {
   const dispatch = useDispatch();
